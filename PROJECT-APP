@@ -1,4 +1,4 @@
-1.> app -> create templates  -> create index.html  -> fill the followng code :
+1.> app -> create templates folder -> create index.html  -> fill the followng code :
 
 <!doctype html>
 <html lang="en">
