@@ -1,0 +1,15 @@
+1.:-  add your app name ininstall section of setings.py 
+  'app',
+
+________________________________________________________________________
+
+2.:- OPEN  urls.py -> enter the following code :
+
+from django.contrib import admin
+from django.urls import path,include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('app.urls')),
+]
+__________________________________________________________________________
