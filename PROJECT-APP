@@ -1,0 +1,231 @@
+1.> app -> create templates  -> create index.html  -> fill the followng code :
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <div class="container">
+        <section class="h-100 h-custom" style="background-color: #8fc4b7;">
+            <div class="container py-5 h-100">
+              <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-lg-8 col-xl-6">
+                  <div class="card rounded-3">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp"
+                      class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;"
+                      alt="Sample photo">
+                    <div class="card-body p-4 p-md-5">
+                      <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Student Registration Info</h3>
+          
+                      <form action="." class="px-md-2" method="post">
+                        {% csrf_token %}
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form3Example1q">FirstName</label>
+                          <input name="name" type="text" id="form3Example1q" class="form-control" required />
+                          
+                        </div>
+
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="form3Example1q">Last Name</label>
+                        <input name="name" type="text" id="form3Example1q" class="form-control" required />
+                        
+                      </div>
+
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="email1">Student email:</label>
+                          <input name="email" type="email" id="email1" class="form-control" required />
+                          
+                        </div>
+          
+                        <div class="row">
+                          <div class="col-md-6 mb-4">
+          
+                            <div class="form-outline datepicker">
+                                <label for="exampleDatepicker1" class="form-label">Date of Birth</label>
+                              <input name="dob" type="date" class="form-control" id="exampleDatepicker1" required/>
+                              
+                            </div>
+          
+                          </div>
+                          <div class="col-md-6 mb-4">
+                            <label class="form-label" for="form3Example1q">Gender</label>
+                            <select name="gender" class="select" required>
+                              <option value="1" disabled>Gender</option>
+                              <option value="Female">Female</option>
+                              <option value="Male">Male</option>
+                              <option value="Other">Other</option>
+                            </select>
+          
+                          </div>
+                        </div>
+          
+                        <div class="mb-4">
+                            <label class="form-label" for="form3Example1q">course</label>
+                          <select name="classname" class="select" required> 
+                            <option value="1" disabled>Class</option>
+                            <option value="Class 1">B.Sc(hons)</option>
+                            <option value="Class 2">B.Sc(prog)</option>
+                            <option value="Class 3">B.com(hons)</option>
+                            <option value="Class 4">B.com(prog)</option>
+                            <option value="Class 5">B.A(hons)</option>
+                            <option value="Class 5">B.A(prog)</option>
+                          </select>
+          
+                        </div>
+          
+                        <div class="row mb-4 pb-2 pb-md-0 mb-md-5">
+                          <div class="col-md-6">
+          
+                            <div class="form-outline">
+                                <label class="form-label" for="form3Example1w">Registration code</label>
+                              <input name="reg" type="text" id="form3Example1w" class="form-control"  required/>
+                            
+                            </div>
+                            
+                                      
+                            <div class="form-outline pt-3 my-2">
+                            <label class="form-label" for="test">Admission Test score</label>
+                              <input  name="test" type="number" id="test" class="form-control" required/>
+                            
+                            </div>
+                          </div>
+                        </div>
+          
+                        <button type="submit" class="btn btn-success btn-lg mb-1">Submit</button>
+          
+                      </form>
+          
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+2. > CREATE list.html in template  -> enter the following code:
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1 class="text-center mx-3">List of student</h1>
+    <div class="container">
+       
+            {% for x in obj %}
+            <ul>
+                <li>{{ x.name }}</li>
+                <li>Score: {{ x.test}}</li>
+                <li>email: {{ x.email}}</li>
+            </ul>
+            {% endfor %}
+           
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+3.> open admin.py ->enter the following code :
+
+from django.contrib import admin
+from .models import Student
+# Register your models here.
+
+@admin.register(Student)
+class StudentAdmin(admin.ModelAdmin):
+    list_display = ('name','test','gen')
+
+_______________________________________________________________________________________________________________________________________________________________________________________________
+
+4.> OPEN models.py -> enter the following code :
+
+from django.db import models
+
+# Create your models here.
+class Student(models.Model):
+    name=models.CharField(max_length=100)
+    email=models.EmailField()
+    dob=models.DateField()
+    gen=models.CharField(max_length=50)
+    stuClass=models.TextField()
+    reg=models.TextField()
+    test=models.FloatField()
+
+______________________________________________________________________________________________________________________________________________________________________________________________
+
+5.:> CREATE urls.py -> enter the following code :
+
+from django.urls import path
+from . import views
+urlpatterns = [
+    path('', views.index, name="home"),
+    path('list/', views.list_stu, name="list"),
+
+]
+
+_____________________________________________________________________________________________________________________________________________________________________________________________
+
+6.:> OPEN views.py -> enter the following code :
+
+from django.shortcuts import render,HttpResponse
+from .models import Student
+# Create your views here.
+def index(request):
+    if request.method == "POST":
+        name=request.POST['name']
+        email=request.POST['email']
+        dob=request.POST['dob']
+        gen=request.POST['gender']
+        cla=request.POST['classname']
+        regn=request.POST['reg']
+        test=request.POST['test']
+        if float(test)>100:
+            return HttpResponse("test score must less than 100 ")
+        obj=Student()
+        obj.name=name
+        obj.email=email
+        obj.dob=dob
+        obj.gen=gen
+        obj.stuClass=cla
+        obj.reg=regn
+        obj.test=test
+        obj.save()
+        return HttpResponse("<h1>Your entry have been saved</h1>")
+
+    return render(request,'index.html')
+def list_stu(request):
+    obj=Student.objects.all()
+    return render(request,'list.html',{'obj':obj})
+
+________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
